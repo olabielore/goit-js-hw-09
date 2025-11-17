@@ -1,12 +1,9 @@
+const formEl = document.querySelector('.feedback-form');
+
 const formData = {
   email: '',
   message: '',
 };
-
-const initData = localStorage.getItem('feedback-form-state');
-const initDataParse = JSON.parse(initData);
-
-const formEl = document.querySelector('.feedback-form');
 
 const labelEmailEl = document.createElement('label');
 labelEmailEl.classList.add('label-element');
@@ -18,10 +15,6 @@ inputEmail.type = 'email';
 inputEmail.name = 'email';
 inputEmail.autofocus = true;
 
-if (initData !== null) {
-  inputEmail.value = initDataParse.email;
-}
-
 const labelMessageEl = document.createElement('label');
 labelMessageEl.classList.add('label-element');
 labelMessageEl.textContent = 'Message';
@@ -30,10 +23,6 @@ const textAreaMessage = document.createElement('textarea');
 textAreaMessage.classList.add('form-text-area');
 textAreaMessage.name = 'message';
 textAreaMessage.rows = 8;
-
-if (initData !== null) {
-  textAreaMessage.value = initDataParse.message;
-}
 
 const btnEl = document.createElement('button');
 btnEl.classList.add('form-button');
@@ -47,6 +36,18 @@ formEl.append(labelMessageEl);
 formEl.append(btnEl);
 
 document.body.append(formEl);
+
+const initData = localStorage.getItem('feedback-form-state');
+
+if (initData !== null) {
+  const initDataParse = JSON.parse(initData);
+
+  textAreaMessage.value = initDataParse.message;
+  inputEmail.value = initDataParse.email;
+
+  formData.message = initDataParse.message;
+  formData.email = initDataParse.email;
+}
 
 const addDataToLocalStorage = () => {
   try {
