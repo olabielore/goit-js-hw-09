@@ -6,9 +6,7 @@ const formData = {
 const initData = localStorage.getItem('feedback-form-state');
 const initDataParse = JSON.parse(initData);
 
-const formEl = document.createElement('form');
-formEl.classList.add('feedback-form');
-formEl.autocomplete = 'off';
+const formEl = document.querySelector('.feedback-form');
 
 const labelEmailEl = document.createElement('label');
 labelEmailEl.classList.add('label-element');

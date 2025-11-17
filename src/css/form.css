@@ -20,17 +20,24 @@
     letter-spacing: 0.04em;
 }
 
-.form-input {
+.form-input, .form-text-area {
     width: 360px;
-    height: 40px;
-    padding: 8px, 16px;
+    padding-block: 8px;
+    padding-inline: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 .form-text-area {
     resize: none;
     width: 360px;
     height: 80px;
-    padding: 8px, 16px;
+    padding-block: 8px;
+    padding-inline: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 .form-button {
@@ -45,5 +52,9 @@
     font-size: 16px;
     letter-spacing: 0.04em;
     color: #fff;
+}
+
+.form-button:hover {
+    background: #6c8cff;
 }
 
